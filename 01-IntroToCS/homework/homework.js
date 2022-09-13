@@ -1,7 +1,7 @@
 'use strict'
 
-function BinarioADecimal(num) {
-  // tu codigo aca
+function BinarioADecimal(num) { 
+  // tu codigo aca                                        
   let a = 0;
   let numInv = num.split('').reverse().join('');
 	for(let i = 0; i < num.length; i++){
