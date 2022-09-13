@@ -31,7 +31,7 @@ console.log(x); // 1
 
 ```javascript
 console.log(bar); //undefined
-console.log(baz); //Erorr 
+console.log(baz); //Erorr baz is not defined
 foo();
 function foo() { console.log('Hola!'); }
 var bar = 1;
