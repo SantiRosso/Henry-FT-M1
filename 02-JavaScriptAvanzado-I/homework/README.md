@@ -84,13 +84,25 @@ console.log(pm); // 'Franco'
 7 / 0 // Infinity
 {}[0] // [0]
 parseInt("09") // 9
-5 && 2 // 2
+5 && 2 // 2 Si el primero es true, sigue
 2 && 5 // 5
-5 || 0 // 5 
+// 0 && 5 --> 0 Si el primero es false, se corta
+5 || 0 // 5 Con que uno sea true se cumple
 0 || 5 // 5
 [3]+[3]-[10] // 23
 3>2>1 // false
 [] == ![] //true
+// => []==![]
+
+// => []==false // Type conversion by the statement itself
+
+// => []==0 // To number of right operand
+
+// => ""==0 // To Primitive call for Array which will in this case convert to empty string
+
+// => 0==0 // To number call of "" which is 0
+
+// => true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -128,7 +140,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false); // nada
+getFood(false); // undefined
 ```
 
 
