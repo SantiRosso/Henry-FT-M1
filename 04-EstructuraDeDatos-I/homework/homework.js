@@ -44,6 +44,15 @@ function nFibonacci(n) {
   // n=2 --> 1 + 0
   //n=1 --> 1 condición
   //n=0 --> 0 condición
+
+  /*
+  let arr = [0,1];
+  for(let i = 2; i <= n; i++) {
+    arr[i] = arr[i-1] + arr[i-2];
+  }
+  return arr[n]
+  */
+  
 }
 
 /*
