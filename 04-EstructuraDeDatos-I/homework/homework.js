@@ -20,6 +20,15 @@ function nFactorial(n) {
   } else {
     return nFactorial(n-1) * n; 
   }
+
+//   function factorial (n) {
+//     var total = 1; 
+//     for (i=1; i<=n; i++) {
+//         total = total * i; 
+//     }
+//     return total; 
+// }
+
 }
 
 function nFibonacci(n) {
@@ -28,6 +37,13 @@ function nFibonacci(n) {
   } else {
     return nFibonacci(n-1) + nFibonacci(n-2)
   }
+  //n=6 --> 5 + 3
+  //n=5 --> 3 + 2
+  //n=4 --> 2 + 1
+  //n = 3 -->1 + 1
+  // n=2 --> 1 + 0
+  //n=1 --> 1 condición
+  //n=0 --> 0 condición
 }
 
 /*
