@@ -39,6 +39,18 @@ BinarySearchTree.prototype.size = function () {
   else if (!this.right) return 1 + this.left.size();
   // tengo en ambos y se apllica la recursión
   else return 1 + this.left.size() + this.right.size();
+
+  /* 
+  let count = 0;
+  count++;
+  if (this.left) {
+    count += this.left.size();
+  }
+  if (this.right) {
+    count += this.right.size();
+  }
+  return count;
+  */
 };
 
 
