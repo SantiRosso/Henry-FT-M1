@@ -2,7 +2,7 @@ const {
     Queue,
     Node,
     LinkedList,
-    BinarySearchTree
+    BinarySearchTree,
 } = require('./DS.js')
 
 // Implementar la función countArray: a partir de un array en el cual cada posición puede ser un único
@@ -14,9 +14,26 @@ const {
 // Pista: utilizar el método Array.isArray() para determinar si algun elemento de array es un array anidado
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
+
 var countArray = function(array) {
     // Tu código aca:
-    
+
+let count = 0;
+var contarArray = function(array) {
+    for(let i = 0; i < array.length; i++) {
+        if(!Array.isArray(array[i]))
+            count += array[i];
+        else if(Array.isArray(array[i])) {
+            contarArray(array[i]);
+        }
+    } 
+return count;
+}
+return contarArray(array);
+
+    /* let newArr = array.reduce((acc, curr) => Array.isArray(curr) ? 
+    acc.concat(countArray(curr)) : acc.concat(curr), []);
+    return newArr.reduce((acc, curr) => acc + curr, 0); */
 }
 
 
@@ -39,7 +56,17 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
-
+    var props = [];
+    var contarPropiedades = function(obj) {
+        for(let property in obj) {
+            props.push(property);
+            if(typeof obj[property] === 'object' && !Array.isArray(obj[property])) {
+                contarPropiedades(obj[property]);
+            }
+        }
+        return props.length;
+    }
+    return contarPropiedades(obj);
 }
 
 
@@ -53,7 +80,16 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
-
+    let count = 0;
+    let current = this.head
+    while(current) {
+        if(isNaN(Number(current.value))) {
+            count++;
+            current.value = 'Kiricocho';
+        }
+        current = current.next;
+    }
+    return count;
 }
 
 
@@ -67,7 +103,14 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
-
+    let queue = new Queue();
+    while(queueOne.size() || queueTwo.size()) {
+        let firstElement = queueOne.dequeue();
+        let secondElement = queueTwo.dequeue();
+        if(firstElement) queue.enqueue(firstElement);
+        if(secondElement) queue.enqueue(secondElement);
+    }
+    return queue;
 }
 
 
@@ -82,15 +125,22 @@ var mergeQueues = function(queueOne, queueTwo) {
 
 var closureMult = function(multiplier) {
     // Tu código aca:
-
+     return function(num){
+        return multiplier * num;
+     }
 }
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
 BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
-
+    if(!this.right && !this.left) return this.value;
+    else if(!this.right && this.left) return this.value + this.left.sum();
+    else if(this.right && !this.left) return this.value + this.right.sum();
+    else return this.value + this.right.sum() + this.left.sum();
 }
+
+
 
 module.exports = {
     countArray,
